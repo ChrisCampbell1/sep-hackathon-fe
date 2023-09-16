@@ -1,37 +1,40 @@
 // npm modules
-import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 // pages
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import Landing from "./pages/Landing/Landing";
+import Profiles from "./pages/Profiles/Profiles";
+import ChangePassword from "./pages/ChangePassword/ChangePassword";
+import Recipes from "./pages/Recipes/Recipes";
+import ShowRecipe from "./pages/ShowRecipe/ShowRecipe";
 
 // components
-import NavBar from './components/NavBar/NavBar'
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 // services
-import * as authService from './services/authService'
+import * as authService from "./services/authService";
 
 // styles
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [user, setUser] = useState(authService.getUser())
-  const navigate = useNavigate()
+  const [user, setUser] = useState(authService.getUser());
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    authService.logout()
-    setUser(null)
-    navigate('/')
-  }
+    authService.logout();
+    setUser(null);
+    navigate("/");
+  };
 
   const handleAuthEvt = () => {
-    setUser(authService.getUser())
-  }
+    setUser(authService.getUser());
+  };
 
   return (
     <>
@@ -62,9 +65,12 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/api/recipes" element={<Recipes />} />
+        <Route path="/api/recipes/:id" element={<ShowRecipe />} />
       </Routes>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
