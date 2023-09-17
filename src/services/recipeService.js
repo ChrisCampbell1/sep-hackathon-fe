@@ -14,7 +14,21 @@ async function getAllRecipes() {
   }
 }
 
+async function createRecipe(data) {
+  try {
+    const res = await fetch(BASE_URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
 
 
-
-export { getAllRecipes }
+export { getAllRecipes, createRecipe }
