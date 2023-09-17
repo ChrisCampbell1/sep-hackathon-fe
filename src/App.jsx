@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 // pages
@@ -18,12 +18,15 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 // services
 import * as authService from "./services/authService";
+import * as recipeService from "./services/recipeService"
+import * as profileService from "./services/profileService"
 
 // styles
 import "./App.css";
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
+  const [profile, setProfile] = useState(null)
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -35,6 +38,23 @@ function App() {
   const handleAuthEvt = () => {
     setUser(authService.getUser());
   };
+
+  // fetching and storing recipes and user profile on the app level
+
+  const [recipes, setRecipes] = useState(null)
+
+  useEffect(() => {
+    const fetchAllRecipes = async () => {
+      const recipesArr = await recipeService.getAllRecipes()
+      setRecipes(recipesArr)
+    }
+    const fetchProfile = async () => {
+      const userProfile = await profileService.getProfile(user.profile)
+      setProfile(userProfile)
+    }
+    fetchAllRecipes()
+    fetchProfile()
+  }, [])
 
   return (
     <>

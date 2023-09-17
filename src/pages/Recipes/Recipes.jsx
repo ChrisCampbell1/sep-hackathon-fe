@@ -2,9 +2,9 @@
 
 const Recipes = () => {
     return (
-        <div>
+        <main>
             <h1>All Recipes</h1>
-        </div>
+        </main>
     );
 };
 
