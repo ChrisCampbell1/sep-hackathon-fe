@@ -10,6 +10,7 @@ import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import Recipes from "./pages/Recipes/Recipes";
 import ShowRecipe from "./pages/ShowRecipe/ShowRecipe";
+import NewRecipe from "./pages/NewRecipe/NewRecipe";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -85,8 +86,24 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/api/recipes" element={<Recipes />} />
-        <Route path="/api/recipes/:id" element={<ShowRecipe />} />
+        <Route 
+          path="/recipes"
+          element={<Recipes 
+            user={user}
+            profile={profile}
+            recipes={recipes}
+          />}
+        />
+        <Route 
+          path="/recipes/new"
+          element={<NewRecipe 
+            user={user}
+            profile={profile}
+            recipes={recipes}
+            setRecipes={setRecipes}
+          />}
+        />
+        <Route path="/recipes/:id" element={<ShowRecipe />} />
       </Routes>
       <Footer />
     </>
