@@ -46,5 +46,66 @@ async function updateRecipe(data, id) {
   }
 }
 
+async function addImage(image, id) {
+  try {
+    const imageData = new FormData()
+    imageData.append('image', image)
+    const recipe = await fetch(`${BASE_URL}/${id}/add-image`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: imageData
+    })
+    return await recipe.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
 
-export { getAllRecipes, createRecipe, updateRecipe }
+async function addVideo(video, id) {
+  try {
+    const videoData = new FormData()
+    videoData.append('video', video)
+    const recipe = await fetch(`${BASE_URL}/${id}/add-video`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: videoData
+    })
+    return await recipe.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+async function addAudio(audio, id) {
+  try {
+    const audioData = new FormData()
+    audioData.append('audio', audio)
+    const recipe = await fetch(`${BASE_URL}/${id}/add-audio`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: audioData
+    })
+    return await recipe.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+async function showRecipe(id) {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllRecipes, createRecipe, updateRecipe, addImage, addVideo, addAudio, showRecipe }
