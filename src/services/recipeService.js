@@ -30,5 +30,21 @@ async function createRecipe(data) {
   }
 }
 
+async function updateRecipe(data, id) {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      method: 'PUT',
+      body: JSON.stringify(data)
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
 
-export { getAllRecipes, createRecipe }
+
+export { getAllRecipes, createRecipe, updateRecipe }

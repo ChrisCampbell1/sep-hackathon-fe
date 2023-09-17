@@ -78,7 +78,7 @@ export default function NewRecipeForm({ increaseFormNumber, decreaseFormNumber, 
         />
       </div>
       <button type='submit'>
-        next
+        Next
       </button>
     </form>
   )

@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 // components
 import NewRecipeForm from '../../components/NewRecipeForm/NewRecipeForm'
+import EditIngredientsForm from '../../components/EditIngredientsForm/EditIngredientsForm'
 
 // services
 
@@ -27,19 +28,35 @@ export default function NewRecipe({ profile, recipes, setRecipes }) {
       setFormNumber(formNumber - 1)
     }
   }
-  
+
   return (
     <main className={styles.container}>
-      <h1>Add New Recipe</h1>
-      {formNumber === 0 && 
-        <NewRecipeForm
-          increaseFormNumber={increaseFormNumber}
-          decreaseFormNumber={decreaseFormNumber}
-          profile={profile}
-          recipes={recipes}
-          setRecipes={setRecipes}
-          setRecipe={setRecipe}
-        />
+      {formNumber === 0 &&
+        <>
+          <h1>Add New Recipe</h1>
+          <NewRecipeForm
+            increaseFormNumber={increaseFormNumber}
+            decreaseFormNumber={decreaseFormNumber}
+            profile={profile}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setRecipe={setRecipe}
+          />
+        </>
+      }
+      {formNumber === 1 &&
+        <>
+          <h1>Add New Recipe</h1>
+          <EditIngredientsForm
+            increaseFormNumber={increaseFormNumber}
+            decreaseFormNumber={decreaseFormNumber}
+            profile={profile}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setRecipe={setRecipe}
+            recipe={recipe}
+          />
+        </>
       }
     </main>
   )
