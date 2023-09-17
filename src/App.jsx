@@ -85,7 +85,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/api/recipes" element={<Recipes />} />
+        <Route 
+          path="/recipes"
+          element={<Recipes 
+            user={user}
+            profile={profile}
+            recipes={recipes}
+          />}
+        />
         <Route path="/api/recipes/:id" element={<ShowRecipe />} />
       </Routes>
       <Footer />
