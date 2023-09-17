@@ -43,4 +43,6 @@ const getProfile = async (id) => {
   }
 }
 
+
+
 export { getAllProfiles, addPhoto, getProfile }
