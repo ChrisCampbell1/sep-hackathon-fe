@@ -60,11 +60,18 @@ const AddInstructionsForm = ({
 
   return (
     <>
-      {formData.instructions.map((instruction, idx) => {
-        <div key={idx}>
-          <li>{instruction}</li>
-          <EditDelete />
-        </div>;
+      {formData.instructions.map((item, idx) => {
+        return (
+          <div key={idx}>
+            <li>{item}</li>
+            <EditDelete
+              objValue="instructions"
+              itemValue={item}
+              formData={formData}
+              setFormData={setFormData}
+            />
+          </div>
+        )
       })}
 
       <form autoComplete="off">

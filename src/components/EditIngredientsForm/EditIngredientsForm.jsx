@@ -73,16 +73,15 @@ export default function EditIngredientsForm({
 
   return (
     <>
-      {formData.ingredients.map((ingredient, idx) => (
+      {formData.ingredients.map((item, idx) => (
         // I just used LIs here to make it easy to test but these probably need to be their own elements so you can edit and delete the ingredients as you're entering them.
         <div key={idx}>
-              <li>{ingredient}</li>
+              <li>{item}</li>
               <EditDelete
                 objValue="ingredients"
-                ingredientValue={ingredient}
+                itemValue={item}
                 formData={formData}
                 setFormData={setFormData}
-                setCurrentIngredient={setCurrentIngredient}
               />
         </div>
       ))}

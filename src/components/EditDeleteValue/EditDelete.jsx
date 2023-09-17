@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-const EditDelete = ({ ingredientValue, objValue, formData, setFormData }) => {
+const EditDelete = ({ itemValue, objValue, formData, setFormData }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);
-  // const [editedIngredient, setEditedIngredient] = useState("");
   const [editedItem, setEditedItem] = useState("");
 
   const handleEditIngredient = (e) => {
@@ -10,35 +9,25 @@ const EditDelete = ({ ingredientValue, objValue, formData, setFormData }) => {
     setEditedItem(e.target.value);
   };
 
-  const handleSaveEditIngredient = (e) => {
+  const handleSaveEdit = (e) => {
     e.preventDefault();
 
-    const newIngredients = formData.ingredients.map((ing) => {
-      if (ing == ingredientValue) {
-        return editedIngredient;
+    const newItems = formData[objValue].map((item) => {
+      if (item == itemValue) {
+        return editedItem;
       }
-      return ing;
+      return item;
     });
 
-    // const newIngredients = formData.ingredients.map((ing) => {
-    //   if (ing == ingredientValue) {
-    //     return editedIngredient;
-    //   }
-    //   return ing;
-    // });
 
-
-    setFormData({ ingredients: newIngredients });
-
-    setEditedIngredient("");
-    // setEditedItem("")
-
+    setFormData({ [objValue]: newItems });
+    setEditedItem("")
     setIsEditOpen(false);
   };
 
   const deleteClickHandler = () => {
     const updatedData = formData[objValue].filter(
-      (ingredient) => ingredient !== ingredientValue
+      (ingredient) => ingredient !== itemValue
     );
     setFormData({ [objValue]: updatedData });
   };
@@ -51,11 +40,11 @@ const EditDelete = ({ ingredientValue, objValue, formData, setFormData }) => {
             type="text"
             name="ingredients"
             id="ingredients"
-            placeholder={ingredientValue}
-            value={editedIngredient}
+            placeholder={itemValue}
+            value={editedItem}
             onChange={handleEditIngredient}
           />
-          <button type="submit" onClick={handleSaveEditIngredient}>
+          <button type="submit" onClick={handleSaveEdit}>
             Save Edit
           </button>
           <button onClick={() => setIsEditOpen(false)}>Cancel</button>
