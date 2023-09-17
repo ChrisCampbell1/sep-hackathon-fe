@@ -4,6 +4,7 @@ import { useState } from 'react'
 // components
 import NewRecipeForm from '../../components/NewRecipeForm/NewRecipeForm'
 import EditIngredientsForm from '../../components/EditIngredientsForm/EditIngredientsForm'
+import AddInstructionsForm from '../../components/AddInstructionsForm/AddInstructionsForm'
 
 // services
 
@@ -11,7 +12,6 @@ import EditIngredientsForm from '../../components/EditIngredientsForm/EditIngred
 import styles from './NewRecipe.module.css'
 
 // component
-
 
 export default function NewRecipe({ profile, recipes, setRecipes }) {
   const [formNumber, setFormNumber] = useState(0)
@@ -48,6 +48,21 @@ export default function NewRecipe({ profile, recipes, setRecipes }) {
         <>
           <h1>Add New Recipe</h1>
           <EditIngredientsForm
+            increaseFormNumber={increaseFormNumber}
+            decreaseFormNumber={decreaseFormNumber}
+            profile={profile}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setRecipe={setRecipe}
+            recipe={recipe}
+          />
+        </>
+      }
+
+      {formNumber === 2 &&
+        <>
+          <h1>Add New Recipe</h1>
+          <AddInstructionsForm
             increaseFormNumber={increaseFormNumber}
             decreaseFormNumber={decreaseFormNumber}
             profile={profile}
