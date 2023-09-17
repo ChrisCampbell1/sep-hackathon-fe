@@ -15,22 +15,27 @@ import styles from './EditIngredientsForm.module.css'
 
 
 export default function EditIngredientsForm({ increaseFormNumber, decreaseFormNumber, profile, recipes,setRecipes, setRecipe, recipe }) {
+  // holds the form data that will be sent via the recipe service to the back end when the user hits next or back
   const [formData, setFormData] = useState({
     ingredients: [],
   })
 
+  // holds just the current content of the text input box
   const [currentIngredient, setCurrentIngredient] = useState('')
 
+  //updates state of current ingredient as the user types
   const handleChangeCurrentIngredient = (e) => {
     setCurrentIngredient(e.target.value)
   }
 
+  // takes the current ingredient and adds it to the array of ingredients in form data
   const handleAddIngredient = (e) => {
     e.preventDefault()
     setFormData({ingredients: [...formData.ingredients, currentIngredient]})
     setCurrentIngredient('')
   }
 
+  // calls the service to update the recipe with ingredients stored in form data, increases the form state number
   const handleSubmit = async (e) => {
     e.preventDefault()
     const updatedRecipe = await recipeService.updateRecipe(formData, recipe._id)
@@ -41,6 +46,7 @@ export default function EditIngredientsForm({ increaseFormNumber, decreaseFormNu
     increaseFormNumber()
   }
 
+  // calls the service to update the recipe with ingredients stored in form data decreases the form state number
   const handleBack = async (e) => {
     e.preventDefault()
     const updatedRecipe = await recipeService.updateRecipe(formData, recipe._id)
@@ -54,6 +60,7 @@ export default function EditIngredientsForm({ increaseFormNumber, decreaseFormNu
   return (
     <>
     {formData.ingredients.map((ingredient, idx) =>
+      // I just used LIs here to make it easy to test but these probably need to be their own elements so you can edit and delete the ingredients as you're entering them.
       <li key={idx}>{ingredient}</li>  
       )}
     
