@@ -13,6 +13,7 @@ import ShowRecipe from "./pages/ShowRecipe/ShowRecipe";
 import NewRecipe from "./pages/NewRecipe/NewRecipe";
 import AddFamily from "./pages/AddFamily/AddFamily";
 import ShowProfile from "./pages/ShowProfile/ShowProfile";
+import EditRecipe from "./pages/EditRecipe/EditRecipe";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -121,6 +122,8 @@ function App() {
             setProfile={setProfile}
           />}
         />
+        <Route path="/recipes/:id" element={<ShowRecipe profile={profile} user={user}/>} />
+        <Route path="/recipes/:id/edit" element={<EditRecipe />} />
       </Routes>
       <Footer />
     </>
