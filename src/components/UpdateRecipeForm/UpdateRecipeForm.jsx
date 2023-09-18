@@ -9,16 +9,19 @@ import * as recipeService from '../../services/recipeService'
 
 
 // styles
-import styles from './NewRecipeForm.module.css'
+import styles from './UpdateRecipeForm.module.css'
+
+// component
 
 
-export default function NewRecipeForm({ increaseFormNumber, recipes,setRecipes, setRecipe }) {
+// export default function UpdateRecipeForm({ increaseFormNumber, recipes, setRecipes, setRecipe }) {
+export default function UpdateRecipeForm({ increaseFormNumber, recipe, setRecipe }) {
+  
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     recipeCategory: '',
     recipeCuisine: '',
-    recipeYield: '',
   })
 
   const handleChange = (e) => {
@@ -27,10 +30,9 @@ export default function NewRecipeForm({ increaseFormNumber, recipes,setRecipes, 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(formData)
-    const newRecipe = await recipeService.createRecipe(formData)
-    await setRecipe(newRecipe)
-    await setRecipes([...recipes, newRecipe])
+    const updatedRecipe = await recipeService.updateRecipe(formData)
+    await setRecipe(updatedRecipe)
+    // await setRecipes([...recipes, updatedRecipe])
     increaseFormNumber()
   }
 
@@ -46,16 +48,20 @@ export default function NewRecipeForm({ increaseFormNumber, recipes,setRecipes, 
           type="text"
           name="title"
           id="title"
+          placeholder={recipe.title}
+          // value={recipe.title}
           onChange={handleChange}
           required
         />
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="description">Description</label>
-        <textarea
+        <input
           type="text"
           name="description"
           id="description"
+          placeholder={recipe.description}
+          // value={recipe.description}
           onChange={handleChange}
         />
       </div>
@@ -65,6 +71,8 @@ export default function NewRecipeForm({ increaseFormNumber, recipes,setRecipes, 
           type="text"
           name="recipeCategory"
           id="recipeCategory"
+          placeholder={recipe.recipeCategory}
+          // value={recipe.recipeCategory}
           onChange={handleChange}
         />
       </div>
@@ -74,15 +82,8 @@ export default function NewRecipeForm({ increaseFormNumber, recipes,setRecipes, 
           type="text"
           name="recipeCuisine"
           id="recipeCuisine"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="recipeYield">Recipe Yeild</label>
-        <input
-          type="text"
-          name="recipeYield"
-          id="recipeYield"
+          placeholder={recipe.recipeCuisine}
+          // value={recipe.recipeCuisine}
           onChange={handleChange}
         />
       </div>
