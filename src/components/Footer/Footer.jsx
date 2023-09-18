@@ -5,33 +5,35 @@ import { AiOutlineFolderAdd } from "react-icons/ai";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
 
+import styles from "./Footer.module.css";
+
 const Footer = () => {
   return (
-    <footer style={{ display: "flex", justifyContent: "space-evenly", textAlign: 'center'}}>
+    <footer className={styles.footerContainer}>
       <section>
         <Link to="/">
-          <GoHome style={{ width: "30px", height: "30px" }} />
+          <GoHome />
           <p>Home</p>
         </Link>
       </section>
       <section>
         <Link to="/recipes">
-          <FaRegListAlt style={{ width: "30px", height: "30px" }} />
+          <FaRegListAlt />
           <p>My Recipes</p>
         </Link>
       </section>
       <section>
         <Link to="/recipes/new">
-          <AiOutlineFolderAdd style={{ width: "30px", height: "30px" }} />
+          <AiOutlineFolderAdd />
           <p>Add Recipe</p>
         </Link>
       </section>
       <section>
-        <HiOutlineUserGroup style={{ width: "30px", height: "30px" }} />
+        <HiOutlineUserGroup />
         <p>Sharing</p>
       </section>
       <section>
-        <FiSettings style={{ width: "30px", height: "30px" }} />
+        <FiSettings />
         <p>Settings</p>
       </section>
     </footer>
