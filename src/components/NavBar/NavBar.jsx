@@ -10,6 +10,7 @@ import cookloreLogo from "../../assets/cooklore-logo.png";
 const NavBar = ({ user, profile }) => {
   console.log("user", user);
   console.log("profile", profile);
+
   return (
     <nav className={styles.nav}>
       <div>
@@ -35,7 +36,7 @@ const NavBar = ({ user, profile }) => {
       )}
 
       {user && (
-        <Link to={`/family/${user._id}`} className={styles.loginContainer}>
+        <Link to={`/family/${user._id}`} state={profile} className={styles.profileContainer}>
           <div className={styles.signInContainer}>
             <p>{profile.photo ? <img src={profile.photo} alt={profile.name} className={styles.userImg}/> : <FaUser className={styles.icon} />}</p>
             <p>{profile.name}</p>

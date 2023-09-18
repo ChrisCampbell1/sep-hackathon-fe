@@ -64,7 +64,7 @@ function App() {
     <>
       <NavBar user={user} profile={profile} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} profile={profile}/>} />
+        <Route path="/" element={<Landing user={user} profile={profile} handleLogout={handleLogout}/>} />
         <Route
           path="/profiles"
           element={
@@ -125,7 +125,7 @@ function App() {
         <Route path="/recipes/:id" element={<ShowRecipe profile={profile} user={user}/>} />
         <Route path="/recipes/:id/edit" element={<EditRecipe />} />
       </Routes>
-      <Footer />
+      <Footer user={user} profile={profile}/>
     </>
   );
 }
