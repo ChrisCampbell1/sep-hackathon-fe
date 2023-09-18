@@ -1,0 +1,33 @@
+.footerContainer {
+    background-color: #8bbee2;
+    /* width: 768px; */
+    height: 112px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.footerContainer > section > a {
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footerContainer > section > a > img {
+    width: 48.464px;
+    height: 45px;
+    flex-shrink: 0;
+    margin-bottom: -10px;
+
+}
+
+.footerContainer > section > a > img.profileImg {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}

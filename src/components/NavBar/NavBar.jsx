@@ -1,10 +1,50 @@
 // npm modules
-import { NavLink } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const NavBar = ({ user, handleLogout }) => {
+import { FaUser } from "react-icons/fa";
+
+import styles from "./NavBar.module.css";
+
+import cookloreLogo from "../../assets/cooklore-logo.png";
+
+const NavBar = ({ user, profile }) => {
+  console.log("user", user);
+  console.log("profile", profile);
+
   return (
-    <nav>
-      {user ?
+    <nav className={styles.nav}>
+      <div>
+        <Link to="/">
+          <img src={cookloreLogo} alt="Cooklore Logo" />
+          <p>Cook Lore</p>
+        </Link>
+      </div>
+
+      <div>
+        <input type="text" placeholder="🔍 Search" />
+      </div>
+
+      {!user && (
+        <Link to="/auth/login" className={styles.loginContainer}>
+          <div className={styles.signInContainer}>
+            <p>
+              <FaUser className={styles.icon} />
+            </p>
+            <p>Sign In</p>
+          </div>
+        </Link>
+      )}
+
+      {user && (
+        <Link to={`/family/${user._id}`} state={profile} className={styles.profileContainer}>
+          <div className={styles.signInContainer}>
+            <p>{profile.photo ? <img src={profile.photo} alt={profile.name} className={styles.userImg}/> : <FaUser className={styles.icon} />}</p>
+            <p>{profile.name}</p>
+          </div>
+        </Link>
+      )}
+
+      {/* {user ?
         <ul>
           <li>Welcome, {user.name}</li>
           <li><NavLink to="/">Home</NavLink></li>
@@ -19,9 +59,9 @@ const NavBar = ({ user, handleLogout }) => {
           <li><NavLink to="/auth/login">Log In</NavLink></li>
           <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
         </ul>
-      }
+      } */}
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

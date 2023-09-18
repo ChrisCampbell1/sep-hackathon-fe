@@ -1,0 +1,97 @@
+.nav {
+    /* border: 2px solid red; */
+    background-color: #8bbee2;
+    /* width: 768px; */
+    height: 100px;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.nav > div:nth-child(1) > a {
+    display: flex;
+    text-decoration: none;
+
+}
+
+.nav > div:nth-child(1) > a > img {
+    width: 55px;
+    height: 83.155px;
+    flex-shrink: 0;
+    margin: 10px 0 7px 27px;
+}
+
+.nav > div:nth-child(1) > a > p {
+    color: #484297;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    /* letter-spacing: -1px; */
+}
+
+.nav > div:nth-child(2) {
+    padding: 49px 0 0 60px;
+} 
+
+.nav > div:nth-child(2) > input {
+    width: 252px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFF;
+    outline: none;
+    padding: 10px;
+    color: #6D6D6D;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.loginContainer {
+    margin-left: 130px;
+}
+
+.profileContainer {
+    margin-left: 100px;
+}
+
+.signInContainer {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.icon {
+    color: black;
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: -20px;
+    padding-top: 3px;
+}
+
+.userImg {
+    /* border: 3px solid black; */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: -20px;
+}
+
+.signInContainer > p:nth-child(2) {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0;
+}
+
