@@ -57,4 +57,19 @@ const requestFamily = async (id) => {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfile, requestFamily }
+const approveFamily = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/approve`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+
+export { getAllProfiles, addPhoto, getProfile, requestFamily, approveFamily }

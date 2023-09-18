@@ -118,6 +118,7 @@ function App() {
           element={<ShowProfile 
             user={user}
             profile={profile}
+            setProfile={setProfile}
           />}
         />
       </Routes>

@@ -13,9 +13,12 @@ import styles from './AddFamily.module.css'
 const AddFamily = ({ user, profile }) => {
   const [profiles, setProfiles] = useState([])
 
+  console.log(profile)
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getAllProfiles()
+      // const updatedProfileData = profileData.filter((el) => el._id !== profile._id)
+      // setProfiles(updatedProfileData)
       setProfiles(profileData)
     }
     fetchProfiles()

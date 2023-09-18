@@ -2,7 +2,7 @@
 import { useLocation, Link, useNavigate } from 'react-router-dom'
 
 // components
-
+import RequestCard from '../../components/RequestCard/RequestCard'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -13,7 +13,7 @@ import styles from './ShowProfile.module.css'
 // component
 
 
-export default function ShowProfile({ profile }) {
+export default function ShowProfile({ profile, setProfile }) {
   const location = useLocation()
   const profileDisplayed = location.state
 
@@ -31,11 +31,13 @@ export default function ShowProfile({ profile }) {
             <Link to={`/family/${profileDisplayed._id}/edit`}>Edit Profile</Link>
             <h2>Pending Family Requests</h2>
             {profile.pendingRelatives.map((pendingRelative) =>
-              <h4 key={pendingRelative._id}>Pending Invite</h4>
+              <RequestCard key={pendingRelative._id} pendingRelative={pendingRelative} setProfile={setProfile}/>
             )}
   
             <h2>My Family</h2>
-  
+            {profile.relatives.map((relative) => 
+                <h3 key={relative._id}>{relative.name}</h3>
+            )}
             <Link to={`/family/add`}>Add More Family Members</Link>
             </>
             :
