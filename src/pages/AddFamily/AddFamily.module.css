@@ -1,0 +1,88 @@
+.container {
+  background-color: #D8EAFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container h2 {
+display: flex;
+width: 704px;
+padding: 10px 83px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 10px;
+background: #FFB2A3;
+color: black;
+text-align: center;
+}
+
+.container .tab {
+display: inline-flex;
+height: 60px;
+min-width: 200px;
+padding: 0px 30px;
+flex-direction: column;
+justify-content: column;
+align-items: center;
+flex-shrink: 0;
+border-radius: 30px 30px 0px 0px;
+background: #FFB2A3;
+color: black;
+margin-left: 0;
+/* position: absolute; */
+/* left: 50; */
+margin-right: 503px;
+}
+
+.container .card {
+width: 704px;
+/* height: 708px; */
+flex-shrink: 0;
+border-radius: 0px 30px 30px 30px;
+background: #FFF;
+color: black;
+display: flex;
+flex-direction: column;
+padding: 24px 34px;
+margin-bottom: 36px;
+}
+
+.container .card p {
+  color: black;
+  font-weight: bold;
+}
+
+.container .card form {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.container .card form input {
+  background-color: #E1FAFF;
+  width: 360px;
+min-width: 250px;
+padding: 11px 19px;
+justify-content: center;
+align-items: center;
+border-radius: 22px;
+font-size: 18px;
+border: unset;
+margin: 0;
+}
+
+.container .card form button{
+  border-radius: 20px;
+background: #49CDCE;
+padding: 10px 15px;
+align-items: center;
+font-size: 18px;
+font-weight: bold;
+border: unset;
+width: 204px;
+}
