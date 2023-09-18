@@ -22,6 +22,19 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
   const [image, setImage] = useState(null)
   const [video, setVideo] = useState(null)
   const [audio, setAudio] = useState(null)
+  const [formData, setFormData] = useState(
+    {share: false}
+  )
+
+  // updates public based on checkbox
+  const handleCheckboxChange = (e) => {
+    console.log("check")
+    setFormData((prevValue) => {
+      console.log(prevValue)
+      return {share: !prevValue.share}
+    }
+    )
+  }
 
   // updates media state
   const handleImageChange = (e) => {
@@ -37,6 +50,7 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
   // calls the service to update the recipe with ingredients stored in form data, increases the form state number
   const handleSubmit = async (e) => {
     e.preventDefault()
+    await recipeService.updateRecipe(formData, recipe._id)
     if (image !== null) {
       await recipeService.addImage(image, recipe._id)
     }
@@ -57,6 +71,9 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
   // calls the service to update the recipe with ingredients stored in form data decreases the form state number
   const handleBack = async (e) => {
     e.preventDefault()
+    if (formData.share === true) {
+      await recipeService.updateRecipe(formData, recipe._id)
+    }
     if (image !== null) {
       await recipeService.addImage(image, recipe._id)
     }
@@ -124,6 +141,15 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
             required
           />
         </div>
+        <div className={styles.inputContainerCheck}>
+        <label htmlFor="share">Share Publicly?</label>
+        <input
+          type="checkbox"
+          name="share"
+          id="share"
+          onChange={handleCheckboxChange}
+        />
+      </div>
         <button
           type='button'
           onClick={handleSubmit}
