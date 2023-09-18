@@ -24,15 +24,17 @@ export default function ProfileCard({ profileDisplayed, profile }) {
   
   return (
     <div className={styles.container}>
-      <Link to={`/family/${profileDisplayed._id}`} state={profileDisplayed}>
-        <h3>{profileDisplayed.name}</h3>
-      </Link>
-      <Link to={`/family/${profileDisplayed._id}`} state={profileDisplayed}>
-        <img src={profileDisplayed.photo} alt={profileDisplayed.name}/>
-      </Link>
+      <div>
+        <Link to={`/family/${profileDisplayed._id}`} state={profileDisplayed}>
+          <img src={profileDisplayed.photo} alt={profileDisplayed.name}/>
+        </Link>
+        <Link to={`/family/${profileDisplayed._id}`} state={profileDisplayed}>
+          <h3>{profileDisplayed.name}</h3>
+        </Link>
+      </div>
       {profileDisplayed._id !== profile._id &&
         <button type='button' onClick={handleAdd}>
-          Add Family Member
+          +
         </button>
       }
       

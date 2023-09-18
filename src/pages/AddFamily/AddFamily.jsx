@@ -42,9 +42,9 @@ const AddFamily = ({ user, profile }) => {
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getAllProfiles()
-      // const updatedProfileData = profileData.filter((el) => el._id !== profile._id)
-      // setProfiles(updatedProfileData)
-      setProfiles(profileData)
+      const updatedProfileData = profileData.filter((el) => el._id !== profile._id)
+      setProfiles(updatedProfileData)
+      // setProfiles(profileData)
     }
     fetchProfiles()
   }, [])

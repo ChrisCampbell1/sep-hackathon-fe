@@ -47,6 +47,7 @@ color: black;
 display: flex;
 flex-direction: column;
 padding: 24px 34px;
+margin-bottom: 36px;
 }
 
 .container .card p {
@@ -59,7 +60,7 @@ padding: 24px 34px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0;
+  margin-bottom: 24px;
 }
 
 .container .card form input {
