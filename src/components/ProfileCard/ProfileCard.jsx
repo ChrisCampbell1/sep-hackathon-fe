@@ -21,6 +21,13 @@ export default function ProfileCard({ profileDisplayed, profile }) {
     await profileService.requestFamily(profileDisplayed._id)
     navigate(`/family/${profile._id}`, {state: profile})
   }
+
+  const relatives = []
+  profile.relatives.forEach((relative) => {
+    relatives.push(relative._id)
+  })
+
+  console.log([relatives])
   
   return (
     <div className={styles.container}>
@@ -32,7 +39,7 @@ export default function ProfileCard({ profileDisplayed, profile }) {
           <h3>{profileDisplayed.name}</h3>
         </Link>
       </div>
-      {profileDisplayed._id !== profile._id &&
+      {profileDisplayed._id !== profile._id && !relatives.includes(profileDisplayed._id) &&
         <button type='button' onClick={handleAdd}>
           +
         </button>
