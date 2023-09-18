@@ -1,31 +1,45 @@
 // NPM Modules
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 // css
-import styles from './Landing.module.css'
+import styles from "./Landing.module.css";
 
-const Landing = ({ user, profile, handleLogout }) => {
+const Landing = ({ user, profile, recipes }) => {
+  // console.log("User", user)
+  // console.log("Profile", profile)
+
+console.log(recipes)
+
   return (
-    <main className={styles.container}>
-      {/* <h1>hello, {user ? user.name : 'friend'}</h1> */}
-      {user && profile ?
-        <>
-          <h1>Welcome {user.name}!</h1>
-          <img src={profile.photo} alt={user.name} style={{width: "50px", height: "50px"}}/>
-          <Link to='/recipes/new'>Add Recipe</Link>
-          <Link to='/recipes'>Browse Recipes</Link>
-          <Link to='/family/add'>Add Family</Link>
-          <button onClick={handleLogout}>Log Out</button>
-        </>
-        :
-        <>
-        <h1>hey you should log in</h1>
-        <button><Link to="/auth/login">Sign In</Link></button>
-        <button><Link to="/auth/signup">Sign Up</Link></button>
-        </>
-      }
-    </main>
-  )
-}
+    <>
+      <main className={styles.landingContainer}>
+        {user && profile ? (
+          <></>
+        ) : (
+          <>
+            <section className={styles.noUserLandingContainer}>
+              <p>
+                We invite you to preserve and share your family recipes and
+                their significance. Keep them for yourself or share to the world
+                for others to learn and enjoy.
+              </p>
+              <div>
+                <Link to="/auth/login">Sign In</Link>
+                <Link>Sign Up</Link>
+              </div>
+            </section>
+          </>
+        )}
+      </main>
 
-export default Landing
+      <section className={styles.featuredRecipes}>
+        <h1>Today's Featured Recipes</h1>
+        <div>
+
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Landing;

@@ -6,17 +6,9 @@ import addRecipeIcon from "../../assets/add-recipe-icon.png";
 import familyIcon from "../../assets/family-icon.png";
 import profileIcon from "../../assets/profile-icon.png";
 
-// import { GoHome } from "react-icons/go";
-// import { FaRegListAlt } from "react-icons/fa";
-// import { AiOutlineFolderAdd } from "react-icons/ai";
-// import { HiOutlineUserGroup } from "react-icons/hi";
-// import { FiSettings } from "react-icons/fi";
-
 import styles from "./Footer.module.css";
 
 const Footer = ({ user, profile }) => {
-  console.log("user", user);
-  console.log("profile", profile);
   return (
     <footer className={styles.footerContainer}>
       <section>
