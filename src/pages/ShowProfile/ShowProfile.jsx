@@ -23,18 +23,23 @@ export default function ShowProfile({ profile, setProfile }) {
 
       {profileDisplayed ?
         <>
-          <h1>{profileDisplayed.name}</h1>
+        <div className={styles.profileTop}>
           <img src={profileDisplayed.photo} alt={profileDisplayed.name} />
-          <p>{profileDisplayed.bio}</p>
+
+          <div className={styles.profileInfo}>
+            <h2>{profileDisplayed.name}</h2>
+            <p>{profileDisplayed.bio}</p>
+          </div>
+        </div>
           {profileDisplayed._id === profile._id ?
             <>
             <Link to={`/family/${profileDisplayed._id}/edit`}>Edit Profile</Link>
-            <h2>Pending Family Requests</h2>
+            <h2 className={styles.peach}>Pending Invitations</h2>
             {profile.pendingRelatives.map((pendingRelative) =>
               <RequestCard key={pendingRelative._id} pendingRelative={pendingRelative} setProfile={setProfile}/>
             )}
   
-            <h2>My Family</h2>
+            <h2 className={styles.tab}>My Family</h2>
             {profile.relatives.map((relative) => 
                 <h3 key={relative._id}>{relative.name}</h3>
             )}
