@@ -10,7 +10,7 @@ import * as profileService from '../../services/profileService'
 // css
 import styles from './AddFamily.module.css'
 
-const AddFamily = () => {
+const AddFamily = ({ user, profile }) => {
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -28,9 +28,9 @@ const AddFamily = () => {
   return (
     <main className={styles.container}>
       <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map(profile => (
+      {profiles.map(profileDisplayed => (
         // <p key={profile._id}>{profile.name}</p>
-        <ProfileCard key={profile._id} profile={profile}/>
+        <ProfileCard key={profileDisplayed._id} profileDisplayed={profileDisplayed} profile={profile}/>
       ))}
     </main>
   )

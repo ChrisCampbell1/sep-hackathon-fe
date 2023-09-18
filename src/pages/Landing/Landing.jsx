@@ -8,7 +8,7 @@ const Landing = ({ user, profile }) => {
   return (
     <main className={styles.container}>
       {/* <h1>hello, {user ? user.name : 'friend'}</h1> */}
-      {user ?
+      {user && profile ?
         <>
           <h1>Welcome {user.name}!</h1>
           <img src={profile.photo} alt={user.name} />
