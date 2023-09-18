@@ -26,15 +26,17 @@ export default function RequestCard({ pendingRelative, setProfile }) {
 
   return (
     <div className={styles.container}>
-      <Link to={`/family/${pendingRelative._id}`} state={pendingRelative}>
-        <h3>{pendingRelative.name}</h3>
-      </Link>
-      <Link to={`/family/${pendingRelative._id}`} state={pendingRelative}>
-        <img src={pendingRelative.photo} alt={pendingRelative.name} />
-      </Link>
-      <button type='button' onClick={handleApprove}>
-        Approve Request
-      </button>
+      <div>
+        <Link to={`/family/${pendingRelative._id}`} state={pendingRelative}>
+          <img src={pendingRelative.photo} alt={pendingRelative.name} />
+        </Link>
+        <Link to={`/family/${pendingRelative._id}`} state={pendingRelative}>
+          <h3>{pendingRelative.name}</h3>
+        </Link>
+      </div>
+        <button type='button' onClick={handleApprove}>
+        ✔
+        </button>
     </div>
   )
 }
