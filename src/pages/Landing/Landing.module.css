@@ -55,18 +55,18 @@
 
 .featuredRecipes > h1 {
   width: 704px;
-height: 83px;
-flex-shrink: 0;
-border-radius: 10px;
-background-color: #FFB2A3;
-font-family: Playfair Display;
-font-size: 36px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-color: #000;
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 0 auto;
+  height: 83px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: #FFB2A3;
+  font-family: Playfair Display;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
