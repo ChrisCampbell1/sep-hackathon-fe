@@ -25,20 +25,38 @@ const NavBar = ({ user, profile }) => {
       </div>
 
       {!user && (
-        <Link to="/auth/login" className={styles.loginContainer}>
-          <div className={styles.signInContainer}>
-            <p>
-              <FaUser className={styles.icon} />
-            </p>
-            <p>Sign In</p>
-          </div>
-        </Link>
+        <>
+          {profile && (
+            <Link to="/auth/login" className={styles.loginContainer}>
+              <div className={styles.signInContainer}>
+                <p>
+                  <FaUser className={styles.icon} />
+                </p>
+                <p>Sign In</p>
+              </div>
+            </Link>
+          )}
+        </>
       )}
 
-      {user && (
-        <Link to={`/family/${user._id}`} state={profile} className={styles.profileContainer}>
+      {user && profile && (
+        <Link
+          to={`/family/${user._id}`}
+          state={profile}
+          className={styles.profileContainer}
+        >
           <div className={styles.signInContainer}>
-            <p>{profile.photo ? <img src={profile.photo} alt={profile.name} className={styles.userImg}/> : <FaUser className={styles.icon} />}</p>
+            <p>
+              {profile.photo ? (
+                <img
+                  src={profile.photo}
+                  alt={profile.name}
+                  className={styles.userImg}
+                />
+              ) : (
+                <FaUser className={styles.icon} />
+              )}
+            </p>
             <p>{profile.name}</p>
           </div>
         </Link>
