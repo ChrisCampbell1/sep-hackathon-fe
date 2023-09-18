@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+
 // services
 import * as authService from '../../services/authService'
 
@@ -10,6 +12,8 @@ import styles from './Login.module.css'
 
 const LoginPage = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
+
+  const [showPassword, setShowPassword] = useState(false)
 
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
@@ -37,6 +41,10 @@ const LoginPage = ({ handleAuthEvt }) => {
     }
   }
 
+  const showPasswordClickHandler = () => {
+    setShowPassword(preVal => !preVal)
+  }
+
   const { email, password } = formData
 
   const isFormInvalid = () => {
@@ -60,11 +68,12 @@ const LoginPage = ({ handleAuthEvt }) => {
         <label className={styles.label}>
           Password
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             name="password"
             onChange={handleChange}
           />
+          {showPassword ? <AiOutlineEyeInvisible onClick={showPasswordClickHandler} style={{width: "20px", height: "20px"}}/> : <AiOutlineEye onClick={showPasswordClickHandler} style={{width: "20px", height: "20px"}}/>}
         </label>
         <div>
           <Link to="/">Cancel</Link>
