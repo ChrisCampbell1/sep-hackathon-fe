@@ -15,9 +15,8 @@ import profileIcon from "../../assets/profile-icon.png";
 import styles from "./Footer.module.css";
 
 const Footer = ({ user, profile }) => {
-
-  console.log("user", user)
-  console.log("profile", profile)
+  console.log("user", user);
+  console.log("profile", profile);
   return (
     <footer className={styles.footerContainer}>
       <section>
@@ -47,14 +46,16 @@ const Footer = ({ user, profile }) => {
       <section>
         {user ? (
           <>
-            <Link to={`/family/${user._id}`} state={profile}>
-              <img
-                src={profile.photo ? profile.photo : profileIcon}
-                alt="My Profile"
-                className={styles.profileImg}
-              />
-              <p>Profile</p>
-            </Link>
+            {profile && (
+              <Link to={`/family/${user._id}`} state={profile}>
+                <img
+                  src={profile.photo ? profile.photo : profileIcon}
+                  alt="My Profile"
+                  className={styles.profileImg}
+                />
+                <p>Profile</p>
+              </Link>
+            )}
           </>
         ) : (
           <>
