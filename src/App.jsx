@@ -11,6 +11,7 @@ import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import Recipes from "./pages/Recipes/Recipes";
 import ShowRecipe from "./pages/ShowRecipe/ShowRecipe";
 import NewRecipe from "./pages/NewRecipe/NewRecipe";
+import EditRecipe from "./pages/EditRecipe/EditRecipe";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -103,7 +104,8 @@ function App() {
             setRecipes={setRecipes}
           />}
         />
-        <Route path="/recipes/:id" element={<ShowRecipe />} />
+        <Route path="/recipes/:id" element={<ShowRecipe profile={profile} user={user}/>} />
+        <Route path="/recipes/:id/edit" element={<EditRecipe />} />
       </Routes>
       <Footer />
     </>
