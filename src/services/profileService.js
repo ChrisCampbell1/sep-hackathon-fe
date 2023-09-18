@@ -43,4 +43,33 @@ const getProfile = async (id) => {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfile }
+const requestFamily = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/request`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+const approveFamily = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/approve`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+
+export { getAllProfiles, addPhoto, getProfile, requestFamily, approveFamily }

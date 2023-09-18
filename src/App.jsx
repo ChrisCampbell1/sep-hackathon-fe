@@ -11,6 +11,8 @@ import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import Recipes from "./pages/Recipes/Recipes";
 import ShowRecipe from "./pages/ShowRecipe/ShowRecipe";
 import NewRecipe from "./pages/NewRecipe/NewRecipe";
+import AddFamily from "./pages/AddFamily/AddFamily";
+import ShowProfile from "./pages/ShowProfile/ShowProfile";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -61,7 +63,7 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} profile={profile}/>} />
         <Route
           path="/profiles"
           element={
@@ -104,6 +106,21 @@ function App() {
           />}
         />
         <Route path="/recipes/:id" element={<ShowRecipe />} />
+        <Route 
+          path="/family/add"
+          element={<AddFamily 
+            user={user}
+            profile={profile}
+          />}
+        />
+        <Route 
+          path="/family/:id"
+          element={<ShowProfile 
+            user={user}
+            profile={profile}
+            setProfile={setProfile}
+          />}
+        />
       </Routes>
       <Footer />
     </>
