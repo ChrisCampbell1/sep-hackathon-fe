@@ -50,6 +50,10 @@ export default function NewRecipe({ profile, recipes, setRecipes }) {
       }
       {formNumber === 1 &&
         <>
+          <div className={styles.instructions}>
+            <p>You're in Step 2 of 4</p>
+            <p>On this step you'll be adding the ingredients of your dish to your recipe card.</p>
+          </div>
           <h1>{recipe.title}</h1>
           <EditIngredientsForm
             increaseFormNumber={increaseFormNumber}
@@ -65,6 +69,10 @@ export default function NewRecipe({ profile, recipes, setRecipes }) {
 
       {formNumber === 2 &&
         <>
+          <div className={styles.instructions}>
+            <p>You're in Step 3 of 4</p>
+            <p>On this step you'll be adding the instructions for creating your dish and adding them to your recipe card. </p>
+          </div>
           <h1>{recipe.title}</h1>
           <AddInstructionsForm
             increaseFormNumber={increaseFormNumber}
@@ -80,6 +88,11 @@ export default function NewRecipe({ profile, recipes, setRecipes }) {
 
       {formNumber === 3 &&
         <>
+          <div className={styles.instructions}>
+            <p>You're in Step 4 of 4</p>
+            <p>This is the last step! On this step you can add various forms of media including photos, video, and audio. </p>
+            <p>This is also where you decide if you want to share this to the world or keep it in the family.</p>
+          </div>
           <h1>{recipe.title}</h1>
           <MediaUploadForm
             increaseFormNumber={increaseFormNumber}

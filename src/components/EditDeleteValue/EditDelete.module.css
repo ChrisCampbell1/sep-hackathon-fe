@@ -1,0 +1,17 @@
+.container button{
+  background-color: #49CDCE;
+  border: unset;
+}
+
+.container input {
+  height: 44px;
+  /* border: 2px solid #49CDCE; */
+  /* border-radius: 20px; */
+  /* margin-right: 30px; */
+  font-size: 18px;
+  font-family: sans-serif;
+  color: black;
+  border: unset;
+  border-top: 2px solid #49CDCE;
+  border-bottom: 2px solid #49CDCE;
+}

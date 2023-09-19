@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './EditDelete.module.css'
 
 const EditDelete = ({ itemValue, objValue, formData, setFormData }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -35,7 +36,7 @@ const EditDelete = ({ itemValue, objValue, formData, setFormData }) => {
   return (
     <>
       {isEditOpen && (
-        <form>
+        <form className={styles.container}>
           <input
             type="text"
             name="ingredients"
