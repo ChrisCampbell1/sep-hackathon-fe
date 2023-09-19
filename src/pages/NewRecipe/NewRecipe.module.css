@@ -10,8 +10,24 @@
   border-radius: 20px;
   background: #484297;
   padding: 20px 44px;
-  width: 616px;
+  width: 704px;
   text-align: center;
   font-size: 18px;
   font-family: sans-serif;
+  margin-bottom: 30px;
+}
+
+.container h1 {
+  display: flex;
+  width: 704px;
+  padding: 10px 83px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #FFB2A3;
+  color: black;
+  text-align: center;
+  font-family: serif;
+  font-size: 24px;
 }
