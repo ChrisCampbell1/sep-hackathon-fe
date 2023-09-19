@@ -36,3 +36,8 @@ nav > ul {
   margin: 0;
   padding: 16px 32px;
 }
+
+main {
+  font-family: sans-serif;
+  font-size: 18px;
+}
