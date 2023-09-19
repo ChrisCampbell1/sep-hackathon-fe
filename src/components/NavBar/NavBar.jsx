@@ -36,7 +36,7 @@ const NavBar = ({ user, profile, handleLogout }) => {
         </>
       )}
 
-      {user && profile && (
+      {/* {user && profile && (
         <Link
           to={`/family/${user._id}`}
           state={profile}
@@ -57,11 +57,12 @@ const NavBar = ({ user, profile, handleLogout }) => {
             <p>{profile.name}</p>
           </div>
         </Link>
-      )}
+      )} */}
 
-      {user && (
+      {user && profile && (
         <div className={styles.logoutContainer}>
           <p><GiExitDoor onClick={handleLogout} className={styles.logoutBtn}/></p>
+          {/* <p>Logout</p> */}
         </div>
       )}
     </nav>
