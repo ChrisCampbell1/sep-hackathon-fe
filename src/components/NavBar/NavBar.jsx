@@ -7,6 +7,7 @@ import styles from "./NavBar.module.css";
 
 import cookloreLogo from "../../assets/cooklore-logo.png";
 import profileIcon from "../../assets/profile-icon.png";
+import logoutIcon from "../../assets/logout-icon.png";
 
 const NavBar = ({ user, profile, handleLogout }) => {
 
@@ -60,9 +61,9 @@ const NavBar = ({ user, profile, handleLogout }) => {
       )} */}
 
       {user && profile && (
-        <div className={styles.logoutContainer}>
-          <p><GiExitDoor onClick={handleLogout} className={styles.logoutBtn}/></p>
-          {/* <p>Logout</p> */}
+        <div className={styles.logoutContainer} onClick={handleLogout}>
+          <img src={logoutIcon} />
+          <p>Logout</p>
         </div>
       )}
     </nav>

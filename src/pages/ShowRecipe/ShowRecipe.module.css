@@ -1,0 +1,205 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 30px;
+}
+
+.container .tab {
+    display: flex;
+    width: 650px;
+    padding: 10px 30px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 30px 30px 0px 0px;
+    background-color: #FFF;
+    color: #484297;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.container .card {
+    width: 704px;
+    flex-shrink: 0; 
+    border-radius: 0px 30px 30px 30px;
+    background: #FFF;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 34px;
+}
+
+.container .card .recipeCategory {
+    width: 120px;
+    margin: 0;
+    display: inline-flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background-color: #ffb2a3;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.container .card .recipeYield {
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #484297;
+    margin: 10px 0;
+}
+
+.container .card .recipeDesc {
+    width: 600px;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+/* Sharing */
+
+.container .card h3 {
+    color: #484297;
+    font-family: Playfair Display;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+
+.container .card div {
+    /* border: 1px solid red; */
+    width: 300px;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.container .card div.public {
+    background: #49CDCE;
+}
+
+.container .card div.private {
+    background: #ffb2a3;
+}
+
+
+.container .card div .recipeIcon {
+    width: 31px;
+    height: 27.859px;
+}
+
+.container .card div p {
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ */
+/* Recipe Main Img */
+
+.container .card .recipeImg {
+    height: 418px;
+    align-self: stretch;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ */
+/* Ingredients */
+
+.container .card .ingredientsContainer {
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    
+}
+
+.container .card .ingredientsContainer h3 {
+    color: #484297;
+    font-family: Playfair Display;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.container .card .ingredientsContainer .ingredientsUL {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.container .card .ingredientsContainer .ingredientsUL .listItem {
+    min-width: 250px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid #49CDCE;
+    background: #FFF;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ */
+/* Instructions */
+
+.container .card .instructionsContainer {
+    /* border: 1px solid red; */
+}
+
+.container .card .instructionsContainer .instructionsUL {
+    /* border: 1px solid royalblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0;
+    /* align-self: stretch; */
+}
+
+.container .card .instructionsContainer .instructionsUL .listItem {
+    /* height: 30px; */
+    min-width: 250px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid #49CDCE;
+    background: #FFF;
+}
+
+/* ~ ~ ~ ~ ~ ~ */
+/* Media */

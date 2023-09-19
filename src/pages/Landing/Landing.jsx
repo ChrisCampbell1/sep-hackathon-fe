@@ -24,22 +24,27 @@ const Landing = ({ user, profile, recipes }) => {
   // console.log("Profile", profile)
   // console.log(recipes)
 
-  // const featuredRecipes = recipes.filter((recipe) => {
-  //   if (recipe.share) {
-  //     return recipe;
-  //   }
-  // });
+  // const featuredRecipes = recipes.filter((recipe) => recipe.share);
 
   // console.log(featuredRecipes);
 
   return (
       <main className={styles.landingContainer}>
         {user && profile ? (
-          <></>
+          <>
+          <section className={styles.landingContainer}>
+              <h1>Welcome back, {user.name}</h1>
+              <p className={styles.doToday}>What would you like to do today?</p>
+              <div>
+                <Link to="/recipes/new">Add Recipe</Link>
+                <Link to="/recipes">Browse Recipes</Link>
+                <Link to="/family/add">Add Family</Link>
+              </div>
+            </section></>
         ) : (
           <>
-            <section className={styles.noUserLandingContainer}>
-              <p>
+            <section className={styles.landingContainer}>
+              <p className={styles.weInvite}>
                 We invite you to preserve and share your family recipes and
                 their significance. Keep them for yourself or share to the world
                 for others to learn and enjoy.

@@ -1,17 +1,37 @@
-.noUserLandingContainer {
+.landingContainer {
 width: 704px;
 height: 191px;
 border-radius: 20px;
 background-color: #484297;
 margin: 30px auto;
-padding-top: 10px;
-
+padding-top: 3px;
 }
 
-.noUserLandingContainer > p {
+.landingContainer h1 {
+  font-family: Playfair Display;
+  color: #fff;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  margin: 0;
+}
+
+.landingContainer .doToday {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.landingContainer > .weInvite {
 width: 600px;
 height: 72px;
-margin: 20px auto;
+margin: 10px auto 20px;
 text-align: center;
 flex-shrink: 0;
 color: #FFF;
@@ -22,14 +42,14 @@ font-weight: 700;
 line-height: normal;
 }
 
-.noUserLandingContainer > div { 
-width: 600px;
-margin: 0 auto;
-display: flex;
-justify-content: space-between;
+.landingContainer > div { 
+  width: 650px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.noUserLandingContainer > div > a {
+.landingContainer > div > a {
 width: 200px;
 height: 50px;
 flex-shrink: 0;
@@ -48,6 +68,10 @@ align-items: center;
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.featuredRecipes {
+  /* border: 1px solid red; */
+}
 
 .featuredRecipes > h1 {
 width: 704px;
@@ -73,7 +97,7 @@ flex-direction: column;
 justify-content: center;
 align-items: flex-start;
 background-color: #D8EAFF;
-padding: 32px 60px;
+padding: 32px 0;
 }
 
 a {
