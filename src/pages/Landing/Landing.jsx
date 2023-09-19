@@ -7,8 +7,15 @@ import styles from "./Landing.module.css";
 const Landing = ({ user, profile, recipes }) => {
   // console.log("User", user)
   // console.log("Profile", profile)
+  // console.log(recipes)
 
-console.log(recipes)
+  const featuredRecipes = recipes.filter((recipe) => {
+    if (recipe.share) {
+      return recipe;
+    }
+  });
+
+  console.log(featuredRecipes);
 
   return (
     <>
@@ -25,7 +32,7 @@ console.log(recipes)
               </p>
               <div>
                 <Link to="/auth/login">Sign In</Link>
-                <Link>Sign Up</Link>
+                <Link to="/auth/signup">Sign Up</Link>
               </div>
             </section>
           </>
@@ -34,8 +41,28 @@ console.log(recipes)
 
       <section className={styles.featuredRecipes}>
         <h1>Today's Featured Recipes</h1>
-        <div>
 
+        <div>
+          {featuredRecipes.map((recipe, idx) => {
+            return (
+              <Link to={`/recipes/${recipe._id}`} key={idx}>
+                <div className={styles.container}>
+                  <h2 className={styles.tab}>{recipe.title}</h2>
+                  <div className={styles.card}>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <div>
+                      <p className={styles.recipeDescription}>
+                        {recipe.description}
+                      </p>
+                      <p className={styles.recipeCategory}>
+                        #{recipe.recipeCategory}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </>
