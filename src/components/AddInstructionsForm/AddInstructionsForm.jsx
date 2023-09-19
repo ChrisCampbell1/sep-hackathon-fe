@@ -4,7 +4,7 @@ import EditDelete from "../EditDeleteValue/EditDelete";
 
 import * as recipeService from "../../services/recipeService";
 
-// import styles from "./AddInstructionsForm.module.css";
+import styles from "./AddInstructionsForm.module.css";
 
 const AddInstructionsForm = ({
   increaseFormNumber,
@@ -86,6 +86,14 @@ const AddInstructionsForm = ({
           />
         </div>
         <button onClick={handleAddInstruction}>Add Instruction</button>
+
+        <div className={styles.bottom}>
+          <p></p>
+          <div className={styles.buttons}>
+
+          </div>
+        </div>
+
         <button type="submit" onClick={handleSubmit}>
           Save and Next
         </button>

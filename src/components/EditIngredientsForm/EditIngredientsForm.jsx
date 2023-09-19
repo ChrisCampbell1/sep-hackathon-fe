@@ -73,37 +73,55 @@ export default function EditIngredientsForm({
 
   return (
     <>
+    <div className={styles.ingredients}>
       {formData.ingredients.map((item, idx) => (
         // I just used LIs here to make it easy to test but these probably need to be their own elements so you can edit and delete the ingredients as you're entering them.
-        <div key={idx}>
-              <li>{item}</li>
-              <EditDelete
-                objValue="ingredients"
-                itemValue={item}
-                formData={formData}
-                setFormData={setFormData}
-              />
-        </div>
-      ))}
-
-      <form className={styles.container} autoComplete="off">
-        <div className={styles.inputContainer}>
-          <label htmlFor="ingredients">Ingredient</label>
-          <input
-            type="text"
-            name="ingredients"
-            id="ingredients"
-            value={currentIngredient}
-            onChange={handleChangeCurrentIngredient}
+        <div key={idx} className={styles.ingredient}>
+          <li>{item}</li>
+          <EditDelete
+            objValue="ingredients"
+            itemValue={item}
+            formData={formData}
+            setFormData={setFormData}
           />
         </div>
-        <button onClick={handleAddIngredient}>Add Ingredient</button>
-        <button type="submit" onClick={handleSubmit}>
-          Save and Next
-        </button>
-        <button type="submit" onClick={handleBack}>
-          Back
-        </button>
+      ))}
+    </div>
+
+      <form className={styles.container} autoComplete="off">
+        <label htmlFor="ingredients">Ingredient</label>
+        <div className={styles.inputContainer}>
+          <p>Tell us what goes into your special dish! Add one ingredient at a time with details you want</p>
+          <div className={styles.sideBySide}>
+            <input
+              type="text"
+              name="ingredients"
+              id="ingredients"
+              placeholder="Ingredient"
+              value={currentIngredient}
+              onChange={handleChangeCurrentIngredient}
+            />
+            <button onClick={handleAddIngredient}>+ Add Ingredient</button>
+          </div>
+          <p>Type or use the microphone to record it</p>
+          <p>Examples</p>
+          <li>One stick of butter</li>
+          <li>1/2 cup of butter</li>
+          <li>8 Tablespoons of butter</li>
+        </div>
+
+        <div className={styles.bottom}>
+          <p>When you're done adding the ingredients for your dish use the continue button to begin adding instructions!</p>
+          <div className={styles.buttons}>
+            <button type="submit" onClick={handleSubmit}>
+              Save and Next
+            </button>
+            <button type="submit" onClick={handleBack}>
+              Back
+            </button>
+          </div>
+        </div>
+
       </form>
     </>
   );

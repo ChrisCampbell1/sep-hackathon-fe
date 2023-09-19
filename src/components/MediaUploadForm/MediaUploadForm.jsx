@@ -150,6 +150,14 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
           onChange={handleCheckboxChange}
         />
       </div>
+
+      <div className={styles.bottom}>
+          <p></p>
+          <div className={styles.buttons}>
+
+          </div>
+        </div>
+
         <button
           type='button'
           onClick={handleSubmit}
