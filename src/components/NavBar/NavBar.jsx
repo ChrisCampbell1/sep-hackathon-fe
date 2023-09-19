@@ -61,7 +61,7 @@ const NavBar = ({ user, profile, handleLogout }) => {
       )} */}
 
       {user && profile && (
-        <div className={styles.logoutContainer}>
+        <div className={styles.logoutContainer} onClick={handleLogout}>
           <img src={logoutIcon} />
           <p>Logout</p>
         </div>
