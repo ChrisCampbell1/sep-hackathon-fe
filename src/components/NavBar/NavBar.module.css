@@ -102,14 +102,22 @@
 }
 
 .logoutContainer {
-    /* border: 1px black solid; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    border: 1px solid black;
 }
 
-.logoutBtn {
-    color: black;
-    width: 45px;
-    height: 45px;
+.logoutContainer img {
+    width: 38.658px;
+    height: 40px;
+    flex-shrink: 0;
+    stroke-width: 4px;
+    stroke: #000;
+}
+
+.logoutContainer p {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
