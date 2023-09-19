@@ -82,6 +82,7 @@ border-radius: 22px;
 font-size: 18px;
 border: unset;
 margin: 0;
+font-family: sans-serif;
 }
 
 .container .card form button{
@@ -93,4 +94,5 @@ font-size: 18px;
 font-weight: bold;
 border: unset;
 width: 204px;
+font-family: sans-serif;
 }
