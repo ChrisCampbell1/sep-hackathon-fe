@@ -34,7 +34,10 @@ export default function NewRecipe({ profile, recipes, setRecipes }) {
     <main className={styles.container}>
       {formNumber === 0 &&
         <>
-          <h1>Add New Recipe</h1>
+          <div className={styles.instructions}>
+            <p>You're in Step 1 of 4</p>
+            <p>In just four simple steps you will be able to preserve your cherished family recipe. Then, share it with those you chose, or let the world enjoy your dish! Get started with adding a few details about your dish!</p>
+          </div>
           <NewRecipeForm
             increaseFormNumber={increaseFormNumber}
             decreaseFormNumber={decreaseFormNumber}
