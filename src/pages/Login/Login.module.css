@@ -1,21 +1,59 @@
-input {
-  margin-left: 16px;
-  padding: 4px 8px;
-  font-size: 16px;
-  width: 300px;
-}
-
-input[type="file"] {
-  padding: 0;
-}
-
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 30px;
 }
 
-.message {
+.container .login {
+  border-radius: 20px;
+  background: #484297;
+  width: 665px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 24px;
+}
+
+.container .login h1 {
+  font-family: serif;
+  text-align: center;
+  color: white;
+}
+
+.container .inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .inputContainer label {
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.container .inputContainer input {
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bold;
+  height: 40px;
+  width: 240px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  padding-left: 24px;
+}
+
+.container input[type="file"] {
+  padding: 0;
+}
+
+
+.container .message {
   margin-top: 0;
   height: 22px;
   color: #dd1b16;
@@ -23,25 +61,39 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.form {
+.container .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
 }
 
-.label {
+/* .label {
   width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
   margin-bottom: 8px;
+} */
+
+.container .button {
+  font-size: 18px;
+  font-family: sans-serif;
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+background: #49CDCE;
+font-weight: bold;
+border: unset;
+margin-bottom: 30px;
 }
 
-.button {
-  margin-left: 16px;
-}
-
-.form > label:last-of-type {
+.container .form > label:last-of-type {
   margin-bottom: 16px;
+}
+
+.container a {
+  color: white;
+  font-size: 18px;
+  font-family: sans-serif;
 }

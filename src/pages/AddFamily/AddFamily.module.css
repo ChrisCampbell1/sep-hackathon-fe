@@ -6,6 +6,11 @@
   justify-content: center;
 }
 
+.container h1 {
+  color: black;
+  font-family: sans-serif;
+}
+
 .container h2 {
 display: flex;
 width: 704px;
