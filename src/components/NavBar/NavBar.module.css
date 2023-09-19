@@ -1,13 +1,14 @@
 .nav {
-    /* border: 2px solid red; */
     background-color: #8bbee2;
-    /* width: 768px; */
+    width: 100%;
     height: 100px;
     display: flex;
+    justify-content: space-between;
     flex-shrink: 0;
 }
 
 .nav > div:nth-child(1) > a {
+    /* border: 1px solid red; */
     display: flex;
     text-decoration: none;
 
@@ -26,11 +27,11 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    /* letter-spacing: -1px; */
 }
 
 .nav > div:nth-child(2) {
-    padding: 49px 0 0 60px;
+    /* border: 1px solid royalblue; */
+    padding-top: 49px;
 } 
 
 .nav > div:nth-child(2) > input {
@@ -50,11 +51,12 @@
 }
 
 .loginContainer {
-    margin-left: 130px;
+    /* border: 1px solid yellow; */
+    margin: 15px 10px;
 }
 
 .profileContainer {
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 
 .signInContainer {
@@ -63,6 +65,10 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+}
+
+.signInContainer > img {
+    /* border: 5px solid red; */
 }
 
 .icon {
@@ -95,3 +101,15 @@
     margin-top: 0;
 }
 
+.logoutContainer {
+    /* border: 1px black solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.logoutBtn {
+    color: black;
+    width: 45px;
+    height: 45px;
+}
