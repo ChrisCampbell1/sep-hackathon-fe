@@ -30,12 +30,17 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-a,
+/* a,
 a:visited {
   color: #00d8ff
-}
+} */
 
 nav > ul {
   margin: 0;
   padding: 16px 32px;
+}
+
+main {
+  font-family: sans-serif;
+  font-size: 18px;
 }

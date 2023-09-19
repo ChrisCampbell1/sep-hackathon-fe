@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+// import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 // services
 import * as authService from '../../services/authService'
@@ -53,35 +53,43 @@ const LoginPage = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
-      <h1>Log In</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Email
-          <input
-            type="text"
-            value={email}
-            name="email"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            type={showPassword ? "text" : "password"}
-            value={password}
-            name="password"
-            onChange={handleChange}
-          />
-          {showPassword ? <AiOutlineEyeInvisible onClick={showPasswordClickHandler} style={{width: "20px", height: "20px"}}/> : <AiOutlineEye onClick={showPasswordClickHandler} style={{width: "20px", height: "20px"}}/>}
-        </label>
-        <div>
-          <Link to="/">Cancel</Link>
-          <button className={styles.button} disabled={isFormInvalid()}>
-            Log In
-          </button>
-        </div>
-      </form>
+      <div className={styles.login}>
+        <h1>Sign into your Existing Cook Lore Account</h1>
+        <p className={styles.message}>{message}</p>
+        <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>
+              Enter Email
+              </label>
+              <input
+                type="text"
+                value={email}
+                name="email"
+                onChange={handleChange}
+              />
+          </div>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>
+              Enter Password
+              </label>
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                name="password"
+                onChange={handleChange}
+                />
+                {/* {showPassword ? <AiOutlineEyeInvisible onClick={showPasswordClickHandler} style={{ width: "20px", height: "20px" }} /> : <AiOutlineEye onClick={showPasswordClickHandler} style={{ width: "20px", height: "20px" }} />} */}
+          </div>
+          <div>
+            <button className={styles.button} disabled={isFormInvalid()}>
+              Sign In
+            </button>
+          </div>
+            <Link to="/auth/signup">Don't have an account? Click here to create one</Link>
+        </form>
+
+      </div>
+
     </main>
   )
 }

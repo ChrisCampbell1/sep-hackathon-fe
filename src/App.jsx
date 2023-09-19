@@ -58,7 +58,7 @@ function App() {
     }
     fetchAllRecipes()
     fetchProfile()
-  }, [user])
+  }, [])
 
   return (
     <>

@@ -42,6 +42,8 @@
   background: #FFB2A3;
   color: black;
   text-align: center;
+  font-size: 24px;
+  font-family: serif;
 }
 
 .container .requests {
@@ -72,6 +74,9 @@
   /* position: absolute; */
   /* left: 50; */
   margin: 0 503px 0 0;
+  font-size: 24px;
+  font-family: serif;
+  padding-top: 16px;
   }
 
   .container .card {
@@ -99,6 +104,6 @@
     width: 350px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 6px;
+    padding-top: 8px;
     text-decoration: none;
     }
