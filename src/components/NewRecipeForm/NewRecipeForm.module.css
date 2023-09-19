@@ -144,6 +144,9 @@ input[type="file"] {
 .container .bottom p {
   font-size: 20px;
   font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+
 }
 
 .container .bottom .buttons {

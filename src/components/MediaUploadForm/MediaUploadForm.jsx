@@ -66,7 +66,7 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
     let updatedRecipes = recipes.filter((el) => el._id !== updatedRecipe._id)
     updatedRecipes = [...updatedRecipes, updatedRecipe]
     await setRecipes(updatedRecipes)
-    navigate(`/recipes`)
+    navigate(`/recipes/${updatedRecipe._id}`)
   }
 
   // calls the service to update the recipe with ingredients stored in form data decreases the form state number
@@ -175,13 +175,13 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
             type='button'
             onClick={handleBack}
           >
-            Upload and Back
+            Back
           </button>
           <button
             type='button'
             onClick={handleSubmit}
           >
-            Upload and Save
+            Continue
           </button>
         </div>
       </div>

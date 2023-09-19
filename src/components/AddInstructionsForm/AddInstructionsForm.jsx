@@ -107,7 +107,7 @@ const AddInstructionsForm = ({
               Back
             </button>
             <button type="submit" onClick={handleSubmit}>
-              Save and Next
+              Continue
             </button>
           </div>
         </div>

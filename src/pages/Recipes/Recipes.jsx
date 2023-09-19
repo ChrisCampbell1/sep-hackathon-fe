@@ -20,8 +20,8 @@ const Recipes = ({ user, profile, recipes }) => {
     // console.log(myRecipes, "my recipes")
     // console.log(recipes)
     const familyRecipes = recipes.filter((el) => el.author.relatives.includes(user.profile))
-    console.log(user.profile)
-    console.log(familyRecipes, "family recipes")
+    // console.log(user.profile)
+    // console.log(familyRecipes, "family recipes")
 
     const filteredRecipes = [...myRecipes, ...familyRecipes, ...publicRecipes]
 
