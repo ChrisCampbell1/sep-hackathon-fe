@@ -175,13 +175,13 @@ export default function MediaUploadForm({ increaseFormNumber, decreaseFormNumber
             type='button'
             onClick={handleBack}
           >
-            Upload and Back
+            Back
           </button>
           <button
             type='button'
             onClick={handleSubmit}
           >
-            Upload and Save
+            Continue
           </button>
         </div>
       </div>
