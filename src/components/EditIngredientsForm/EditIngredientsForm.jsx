@@ -113,11 +113,11 @@ export default function EditIngredientsForm({
         <div className={styles.bottom}>
           <p>When you're done adding the ingredients for your dish use the continue button to begin adding instructions!</p>
           <div className={styles.buttons}>
-            <button type="submit" onClick={handleSubmit}>
-              Save and Next
-            </button>
             <button type="submit" onClick={handleBack}>
               Back
+            </button>
+            <button type="submit" onClick={handleSubmit}>
+              Continue
             </button>
           </div>
         </div>

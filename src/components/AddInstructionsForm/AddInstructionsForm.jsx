@@ -60,46 +60,58 @@ const AddInstructionsForm = ({
 
   return (
     <>
-      {formData.instructions.map((item, idx) => {
-        return (
-          <div key={idx}>
-            <li>{item}</li>
-            <EditDelete
-              objValue="instructions"
-              itemValue={item}
-              formData={formData}
-              setFormData={setFormData}
-            />
-          </div>
-        )
-      })}
+      <div className={styles.ingredients}>
+        {formData.instructions.map((item, idx) => {
+          return (
+            <div key={idx} className={styles.ingredient}>
+              <li>{item}</li>
+              <EditDelete
+                objValue="instructions"
+                itemValue={item}
+                formData={formData}
+                setFormData={setFormData}
+              />
+            </div>
+          )
+        })}
 
-      <form autoComplete="off">
-        <div>
-          <label htmlFor="instructions">Instruction</label>
-          <input
-            type="text"
-            name="instruction"
-            id="instruction"
-            value={currentInstruction}
-            onChange={handleChangeCurrentInstruction}
-          />
+      </div>
+
+      <form autoComplete="off" className={styles.container}>
+        <label htmlFor="instructions">Instruction</label>
+        <div className={styles.inputContainer}>
+          <p>Provide the step-by-step instructions for making your dish!
+            Add one instruction at at time.</p>
+          <div className={styles.sideBySide}>
+            <input
+              type="text"
+              name="instruction"
+              id="instruction"
+              value={currentInstruction}
+              onChange={handleChangeCurrentInstruction}
+              placeholder='Input Instruction'
+            />
+            <button onClick={handleAddInstruction}>+ Add Instruction</button>
+          </div>
+          <p>Type or use the microphone to record it</p>
+          <p>Examples</p>
+          <li>Set oven temperature to 350 degrees</li>
+          <li>Mix all dry ingredients</li>
+          <li>Add 1 cup of flour</li>
         </div>
-        <button onClick={handleAddInstruction}>Add Instruction</button>
 
         <div className={styles.bottom}>
-          <p></p>
+          <p>When you're done adding the instructions for your dish use the continue button to begin add some pictures, video, or audio!</p>
           <div className={styles.buttons}>
-
+            <button type="submit" onClick={handleBack}>
+              Back
+            </button>
+            <button type="submit" onClick={handleSubmit}>
+              Save and Next
+            </button>
           </div>
         </div>
 
-        <button type="submit" onClick={handleSubmit}>
-          Save and Next
-        </button>
-        <button type="submit" onClick={handleBack}>
-          Back
-        </button>
       </form>
     </>
   );
