@@ -1,24 +1,38 @@
 // NPM Modules
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // css
 import styles from "./Landing.module.css";
 
 const Landing = ({ user, profile, recipes }) => {
+//   const [featuredRecipes, setFeaturedRecipes] = useState(null)
+// console.log(recipes)
+
+//   useEffect(() => {
+//     const fetchFeatured = () =>{
+//       const filteredRecipes = recipes.filter((el) => el.share)
+//       setFeaturedRecipes(filteredRecipes)
+//     }
+//     fetchFeatured()
+//   }, [])
+
+
+
+  // console.log(filteredRecipes)
   // console.log("User", user)
   // console.log("Profile", profile)
   // console.log(recipes)
 
-  const featuredRecipes = recipes.filter((recipe) => {
-    if (recipe.share) {
-      return recipe;
-    }
-  });
+  // const featuredRecipes = recipes.filter((recipe) => {
+  //   if (recipe.share) {
+  //     return recipe;
+  //   }
+  // });
 
-  console.log(featuredRecipes);
+  // console.log(featuredRecipes);
 
   return (
-    <>
       <main className={styles.landingContainer}>
         {user && profile ? (
           <></>
@@ -37,35 +51,40 @@ const Landing = ({ user, profile, recipes }) => {
             </section>
           </>
         )}
+        {/* {featuredRecipes ? 
+        <section className={styles.featuredRecipes}>
+          <h1>Today's Featured Recipes</h1>
+            <div>
+              {featuredRecipes.map((recipe, idx) => {
+                return (
+                  <Link to={`/recipes/${recipe._id}`} key={idx}>
+                    <div className={styles.container}>
+                      <h2 className={styles.tab}>{recipe.title}</h2>
+                      <div className={styles.card}>
+                        <img src={recipe.image} alt={recipe.title} />
+                        <div>
+                          <p className={styles.recipeDescription}>
+                            {recipe.description}
+                          </p>
+                          <p className={styles.recipeCategory}>
+                            #{recipe.recipeCategory}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+        </section>
+        
+          :
+        <h1>loading recipes...</h1>
+        
+        } */}
       </main>
 
-      <section className={styles.featuredRecipes}>
-        <h1>Today's Featured Recipes</h1>
 
-        <div>
-          {featuredRecipes.map((recipe, idx) => {
-            return (
-              <Link to={`/recipes/${recipe._id}`} key={idx}>
-                <div className={styles.container}>
-                  <h2 className={styles.tab}>{recipe.title}</h2>
-                  <div className={styles.card}>
-                    <img src={recipe.image} alt={recipe.title} />
-                    <div>
-                      <p className={styles.recipeDescription}>
-                        {recipe.description}
-                      </p>
-                      <p className={styles.recipeCategory}>
-                        #{recipe.recipeCategory}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-    </>
   );
 };
 

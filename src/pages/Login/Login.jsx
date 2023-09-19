@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+// import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 // services
 import * as authService from '../../services/authService'
@@ -85,7 +85,7 @@ const LoginPage = ({ handleAuthEvt }) => {
               Sign In
             </button>
           </div>
-            <Link to="/">Don't have an account? Click here to create one</Link>
+            <Link to="/auth/signup">Don't have an account? Click here to create one</Link>
         </form>
 
       </div>

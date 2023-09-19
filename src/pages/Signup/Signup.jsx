@@ -7,6 +7,7 @@ import * as authService from '../../services/authService'
 
 // css
 import styles from './Signup.module.css'
+import icon from '../../assets/add-profile-photo-icon2.png'
 
 const Signup = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
@@ -79,59 +80,78 @@ const Signup = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
-      <h1>Sign Up</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Name
-          <input type="text" value={name} name="name" onChange={handleChange} />
-        </label>
-        <label className={styles.label}>
-          Email
-          <input
-            type="text"
-            value={email}
-            name="email"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Confirm Password
-          <input
-            type="password"
-            value={passwordConf}
-            name="passwordConf"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Upload Photo
-          <input 
-            type="file" 
-            name="photo" 
-            onChange={handleChangePhoto}
-            ref={imgInputRef}
-          />
-        </label>
-        <div>
-          <Link to="/">Cancel</Link>
-          <button
-            className={styles.button}
-            disabled={ isFormInvalid() || isSubmitted }
-          >
-            {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
-          </button>
-        </div>
-      </form>
+      <div className={styles.signUp}>
+        <h1>Create a Free Cook Lore Account</h1>
+        <p className={styles.message}>{message}</p>
+        <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>
+              Enter a Username
+            </label>
+              <input type="text" value={name} name="name" onChange={handleChange} placeholder='Username'/>
+          </div>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>
+              Enter your Email
+              </label>
+              <input
+                type="text"
+                value={email}
+                name="email"
+                onChange={handleChange}
+                placeholder='Email@domain.com'
+              />
+          </div>
+          <div className={styles.inputContainer}>
+          <label className={styles.label}>
+            Enter a Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+              placeholder='Password'
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>
+              Confirm Password
+              </label>
+              <input
+                type="password"
+                value={passwordConf}
+                name="passwordConf"
+                onChange={handleChange}
+                placeholder='Password'
+              />
+          </div>
+          <div className={styles.inputContainerUpload}>
+            <label className={styles.label} htmlFor="photo">
+              <img src={icon} alt="upload a profile image" />
+              <p>Upload an Optional Profile Image</p>
+              {/* upload an image */}
+              </label>
+              <input 
+                type="file" 
+                name="photo" 
+                onChange={handleChangePhoto}
+                ref={imgInputRef}
+                id='photo'
+              />
+          </div>
+          <div>
+            <button
+              className={styles.button}
+              disabled={ isFormInvalid() || isSubmitted }
+            >
+              {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
+            </button>
+          </div>
+            <Link to="/auth/login">Already have an account? Click here to sign in</Link>
+        </form>
+
+      </div>
     </main>
   )
 }
