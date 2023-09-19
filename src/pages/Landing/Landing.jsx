@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 import styles from "./Landing.module.css";
 
 const Landing = ({ user, profile, recipes }) => {
-  // console.log("User", user)
-  // console.log("Profile", profile)
+  console.log("User", user)
+  console.log("Profile", profile)
   // console.log(recipes)
 
-  const featuredRecipes = recipes.filter((recipe) => {
-    if (recipe.share) {
-      return recipe;
-    }
-  });
+  // const featuredRecipes = recipes.filter((recipe) => {
+  //   if (recipe.share) {
+  //     return recipe;
+  //   }
+  // });
 
-  console.log(featuredRecipes);
+  // console.log(featuredRecipes);
 
   return (
     <>
@@ -38,7 +38,7 @@ const Landing = ({ user, profile, recipes }) => {
           </>
         )}
       </main>
-
+{/* 
       <section className={styles.featuredRecipes}>
         <h1>Today's Featured Recipes</h1>
 
@@ -64,7 +64,7 @@ const Landing = ({ user, profile, recipes }) => {
             );
           })}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
