@@ -2,20 +2,34 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+// services
+import * as profileService from "../../services/profileService"
+
 // css
 import styles from "./Landing.module.css";
 
-const Landing = ({ user, profile, recipes }) => {
-//   const [featuredRecipes, setFeaturedRecipes] = useState(null)
+// const Landing = ({ user, profile, recipes }) => {
+const Landing = ({ user, recipes }) => {
+  const [profile, setProfile] = useState(null)
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const userProfile = await profileService.getProfile(user.profile)
+      setProfile(userProfile)
+    }
+    fetchProfile()
+  }, [])
+
+  const [featuredRecipes, setFeaturedRecipes] = useState(null)
 // console.log(recipes)
 
-//   useEffect(() => {
-//     const fetchFeatured = () =>{
-//       const filteredRecipes = recipes.filter((el) => el.share)
-//       setFeaturedRecipes(filteredRecipes)
-//     }
-//     fetchFeatured()
-//   }, [])
+  useEffect(() => {
+    const fetchFeatured = () =>{
+      const filteredRecipes = recipes.filter((el) => el.share)
+      setFeaturedRecipes(filteredRecipes)
+    }
+    fetchFeatured()
+  }, [])
 
 
 
@@ -56,7 +70,7 @@ const Landing = ({ user, profile, recipes }) => {
             </section>
           </>
         )}
-        {/* {featuredRecipes ? 
+        {featuredRecipes ? 
         <section className={styles.featuredRecipes}>
           <h1>Today's Featured Recipes</h1>
             <div>
@@ -86,7 +100,7 @@ const Landing = ({ user, profile, recipes }) => {
           :
         <h1>loading recipes...</h1>
         
-        } */}
+        }
       </main>
 
 
