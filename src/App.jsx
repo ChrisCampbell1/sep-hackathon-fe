@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // pages
 import Signup from "./pages/Signup/Signup";
@@ -33,6 +33,10 @@ function App() {
   const [profile, setProfile] = useState(null)
   const navigate = useNavigate();
 
+  const location = useLocation()
+  const path = location.pathname
+  // console.log(location.pathname)
+
   const handleLogout = () => {
     authService.logout();
     setUser(null);
@@ -58,7 +62,7 @@ function App() {
     }
     fetchAllRecipes()
     fetchProfile()
-  }, [])
+  }, [path])
 
   return (
     <>
