@@ -14,6 +14,17 @@ async function getAllRecipes() {
   }
 }
 
+async function getFeaturedRecipes() {
+  try {
+    const res = await fetch(`${BASE_URL}/featured`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 async function createRecipe(data) {
   try {
     const res = await fetch(BASE_URL, {
@@ -108,4 +119,4 @@ async function showRecipe(id) {
   }
 }
 
-export { getAllRecipes, createRecipe, updateRecipe, addImage, addVideo, addAudio, showRecipe }
+export { getAllRecipes, createRecipe, updateRecipe, addImage, addVideo, addAudio, showRecipe, getFeaturedRecipes }

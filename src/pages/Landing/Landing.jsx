@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 // services
 import * as profileService from "../../services/profileService"
+import * as recipeService from "../../services/recipeService"
 
 // css
 import styles from "./Landing.module.css";
@@ -20,15 +21,15 @@ const Landing = ({ user, recipes }) => {
     fetchProfile()
   }, [])
 
-  // const [featuredRecipes, setFeaturedRecipes] = useState(null)
+  const [featuredRecipes, setFeaturedRecipes] = useState(null)
 
-  // useEffect(() => {
-  //   const fetchFeatured = () =>{
-  //     const filteredRecipes = recipes.filter((el) => el.share)
-  //     setFeaturedRecipes(filteredRecipes)
-  //   }
-  //   fetchFeatured()
-  // }, [])
+  useEffect(() => {
+    const fetchFeatured = async () =>{
+      const filteredRecipes = await recipeService.getFeaturedRecipes()
+      setFeaturedRecipes(filteredRecipes)
+    }
+    fetchFeatured()
+  }, [])
 
 
 
@@ -69,7 +70,7 @@ const Landing = ({ user, recipes }) => {
             </section>
           </>
         )}
-        {/* {featuredRecipes ? 
+        {featuredRecipes ? 
         <section className={styles.featuredRecipes}>
           <h1>Today's Featured Recipes</h1>
             <div>
@@ -99,7 +100,7 @@ const Landing = ({ user, recipes }) => {
           :
         <h1>loading recipes...</h1>
         
-        } */}
+        }
       </main>
 
 
